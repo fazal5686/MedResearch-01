@@ -522,7 +522,167 @@ print(calibration_table)
 
 
 # ------------------------------------------------------------
-# 18. Final reproducibility checks
+
+# ------------------------------------------------------------
+# 18. Overfitting assessment and bootstrap internal validation
+# ------------------------------------------------------------
+
+# Basic model complexity assessment
+n_total <- nrow(model.frame(model_full))
+
+n_events <- sum(
+  model.response(model.frame(model_full)) == 1
+)
+
+n_nonevents <- sum(
+  model.response(model.frame(model_full)) == 0
+)
+
+n_predictors <- length(coef(model_full)) - 1
+
+epp <- n_events / n_predictors
+
+model_full_aic <- AIC(model_full)
+model_full_bic <- BIC(model_full)
+model_full_deviance <- deviance(model_full)
+model_full_null_deviance <- model_full$null.deviance
+
+model_full_pseudo_r2 <- 1 -
+  (model_full_deviance / model_full_null_deviance)
+
+cat("Total observations:", n_total, "\n")
+cat("Readmission events:", n_events, "\n")
+cat("Non-readmission observations:", n_nonevents, "\n")
+cat("Number of predictors:", n_predictors, "\n")
+cat("Events per predictor:", round(epp, 2), "\n")
+cat("AIC:", model_full_aic, "\n")
+cat("BIC:", model_full_bic, "\n")
+cat("Null deviance:", model_full_null_deviance, "\n")
+cat("Residual deviance:", model_full_deviance, "\n")
+cat("McFadden-style pseudo-R2:", model_full_pseudo_r2, "\n")
+
+# Bootstrap internal validation
+if (!requireNamespace("pROC", quietly = TRUE)) {
+  stop("Package 'pROC' is required for bootstrap AUC validation.")
+}
+
+set.seed(12345)
+B <- 200
+optimism_auc <- numeric(B)
+bootstrap_auc <- numeric(B)
+
+for (b in seq_len(B)) {
+
+  boot_index <- sample(
+    seq_len(nrow(patients)),
+    size = nrow(patients),
+    replace = TRUE
+  )
+
+  boot_data <- patients[boot_index, ]
+
+  boot_model <- glm(
+    readmitted_binary ~
+      age +
+      diabetes +
+      hypertension +
+      previous_admissions +
+      length_of_stay +
+      emergency_admission,
+    family = binomial,
+    data = boot_data
+  )
+
+  boot_pred_boot <- predict(
+    boot_model,
+    newdata = boot_data,
+    type = "response"
+  )
+
+  boot_pred_original <- predict(
+    boot_model,
+    newdata = patients,
+    type = "response"
+  )
+
+  auc_boot <- as.numeric(
+    pROC::auc(
+      boot_data$readmitted_binary,
+      boot_pred_boot
+    )
+  )
+
+  auc_original <- as.numeric(
+    pROC::auc(
+      patients$readmitted_binary,
+      boot_pred_original
+    )
+  )
+
+  bootstrap_auc[b] <- auc_boot
+  optimism_auc[b] <- auc_boot - auc_original
+}
+
+mean_optimism <- mean(optimism_auc)
+
+apparent_auc <- as.numeric(
+  pROC::auc(
+    patients$readmitted_binary,
+    predict(model_full, type = "response")
+  )
+)
+
+optimism_corrected_auc <- apparent_auc - mean_optimism
+
+cat("Bootstrap repetitions:", B, "\n")
+cat("Apparent AUC:", apparent_auc, "\n")
+cat("Mean bootstrap optimism:", mean_optimism, "\n")
+cat("Optimism-corrected AUC:", optimism_corrected_auc, "\n")
+
+# Store overfitting assessment results
+overfitting_results <- data.frame(
+  Metric = c(
+    "Total observations",
+    "Readmission events",
+    "Non-readmission observations",
+    "Number of predictors",
+    "Events per predictor",
+    "AIC",
+    "BIC",
+    "Null deviance",
+    "Residual deviance",
+    "Pseudo-R2",
+    "Bootstrap repetitions",
+    "Apparent AUC",
+    "Mean bootstrap optimism",
+    "Optimism-corrected AUC"
+  ),
+  Value = c(
+    n_total,
+    n_events,
+    n_nonevents,
+    n_predictors,
+    epp,
+    model_full_aic,
+    model_full_bic,
+    model_full_null_deviance,
+    model_full_deviance,
+    model_full_pseudo_r2,
+    B,
+    apparent_auc,
+    mean_optimism,
+    optimism_corrected_auc
+  )
+)
+
+print(overfitting_results)
+
+write.csv(
+  overfitting_results,
+  "reports/overfitting_bootstrap_assessment.csv",
+  row.names = FALSE
+)
+# 19. Final reproducibility checks
 # ------------------------------------------------------------
 
 cat(

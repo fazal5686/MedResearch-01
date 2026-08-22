@@ -23,8 +23,8 @@
 - [ ] Model specification checks
 - [x] Multicollinearity assessment — VIF 1.009–1.059; no problematic multicollinearity
 - [x] Influential observation assessment — 19 observations screened using Cook's distance and DFFITS
-- [ ] Overfitting assessment
-- [ ] Internal validation
+- [x] Overfitting assessment — 6 predictors with 54.33 events per predictor; AIC 564.01; BIC 593.51; pseudo-R2 0.149
+- [x] Internal validation — 200-bootstrap optimism correction; apparent AUC 0.7534 and optimism-corrected AUC 0.7418
 - [ ] Bootstrap validation
 - [ ] Univariable analysis
 - [ ] Subgroup analysis

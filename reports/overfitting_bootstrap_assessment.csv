@@ -1,0 +1,15 @@
+"Metric","Value"
+"Total observations",500
+"Readmission events",326
+"Non-readmission observations",174
+"Number of predictors",6
+"Events per predictor",54.3333333333333
+"AIC",564.006964051262
+"BIC",593.509220740217
+"Null deviance",646.199761644442
+"Residual deviance",550.006964051262
+"Pseudo-R2",0.148859227908704
+"Bootstrap repetitions",200
+"Apparent AUC",0.753375996051054
+"Mean bootstrap optimism",0.0116091437014957
+"Optimism-corrected AUC",0.741766852349559
