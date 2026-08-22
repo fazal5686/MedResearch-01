@@ -21,7 +21,7 @@
 - [ ] Model calibration
 - [ ] Calibration plot
 - [ ] Model specification checks
-- [ ] Multicollinearity assessment
+- [x] Multicollinearity assessment — VIF 1.009–1.059; no problematic multicollinearity
 - [ ] Influential observation assessment
 - [ ] Overfitting assessment
 - [ ] Internal validation

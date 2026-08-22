@@ -182,7 +182,30 @@ write.csv(
 
 
 # ------------------------------------------------------------
-# 10. Create forest plot
+
+# ------------------------------------------------------------
+# 10. Multicollinearity diagnostic: Variance Inflation Factor
+# ------------------------------------------------------------
+
+if (!requireNamespace("car", quietly = TRUE)) {
+  stop("Package 'car' is required for VIF analysis.")
+}
+
+vif_values <- car::vif(model_full)
+
+vif_results <- data.frame(
+  Predictor = names(vif_values),
+  VIF = as.numeric(vif_values)
+)
+
+print(vif_results)
+
+write.csv(
+  vif_results,
+  "reports/multicollinearity_vif_results.csv",
+  row.names = FALSE
+)
+# 11. Create forest plot
 # ------------------------------------------------------------
 
 or_values <- exp(coef(model_full))[-1]
@@ -239,7 +262,7 @@ dev.off()
 
 
 # ------------------------------------------------------------
-# 11. Save synthetic dataset
+# 12. Save synthetic dataset
 # ------------------------------------------------------------
 
 saveRDS(
@@ -247,7 +270,7 @@ saveRDS(
   "data/patients_synthetic.rds"
 )
 # ------------------------------------------------------------
-# 12. Categorical variable analysis
+# 13. Categorical variable analysis
 # ------------------------------------------------------------
 
 # Sex and 30-day readmission
@@ -353,7 +376,7 @@ print(emergency_chisq)
 
 
 # ------------------------------------------------------------
-# 13. Length of stay comparison
+# 14. Length of stay comparison
 # ------------------------------------------------------------
 
 los_by_readmission <- tapply(
@@ -373,7 +396,7 @@ print(los_ttest)
 
 
 # ------------------------------------------------------------
-# 14. Publication-friendly results table
+# 15. Publication-friendly results table
 # ------------------------------------------------------------
 
 results_table_formatted <- data.frame(
@@ -404,7 +427,7 @@ write.csv(
 
 
 # ------------------------------------------------------------
-# 15. ROC curve and AUC
+# 16. ROC curve and AUC
 # ------------------------------------------------------------
 
 if (!requireNamespace("pROC", quietly = TRUE)) {
@@ -461,7 +484,7 @@ dev.off()
 
 
 # ------------------------------------------------------------
-# 16. Predicted risk and calibration summary
+# 17. Predicted risk and calibration summary
 # ------------------------------------------------------------
 
 patients$predicted_risk <- predict(
@@ -499,7 +522,7 @@ print(calibration_table)
 
 
 # ------------------------------------------------------------
-# 17. Final reproducibility checks
+# 18. Final reproducibility checks
 # ------------------------------------------------------------
 
 cat(

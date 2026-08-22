@@ -1,0 +1,7 @@
+"Predictor","VIF"
+"age",1.05019941840787
+"diabetes",1.00901165290228
+"hypertension",1.02496568982637
+"previous_admissions",1.05870253901957
+"length_of_stay",1.04997857198948
+"emergency_admission",1.01436876757687
