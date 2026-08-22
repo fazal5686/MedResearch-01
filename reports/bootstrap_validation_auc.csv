@@ -1,0 +1,7 @@
+"Metric","Value"
+"Bootstrap repetitions",200
+"Mean bootstrap AUC",0.761750710634829
+"Bootstrap AUC 95% CI lower",0.718238253311434
+"Bootstrap AUC 95% CI upper",0.799336189973279
+"Apparent AUC",0.753375996051054
+"Optimism-corrected AUC",0.741766852349559

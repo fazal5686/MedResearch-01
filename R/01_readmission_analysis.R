@@ -682,7 +682,110 @@ write.csv(
   "reports/overfitting_bootstrap_assessment.csv",
   row.names = FALSE
 )
-# 19. Final reproducibility checks
+
+# ------------------------------------------------------------
+# 19. Bootstrap validation of model discrimination
+# ------------------------------------------------------------
+
+set.seed(2026)
+B_auc <- 200
+
+bootstrap_auc_validation <- numeric(B_auc)
+
+for (b in seq_len(B_auc)) {
+
+  boot_index <- sample(
+    seq_len(nrow(patients)),
+    size = nrow(patients),
+    replace = TRUE
+  )
+
+  boot_data <- patients[boot_index, ]
+
+  boot_model <- glm(
+    readmitted_binary ~
+      age +
+      diabetes +
+      hypertension +
+      previous_admissions +
+      length_of_stay +
+      emergency_admission,
+    family = binomial,
+    data = boot_data
+  )
+
+  boot_predictions <- predict(
+    boot_model,
+    newdata = boot_data,
+    type = "response"
+  )
+
+  bootstrap_auc_validation[b] <- as.numeric(
+    pROC::auc(
+      boot_data$readmitted_binary,
+      boot_predictions
+    )
+  )
+}
+
+bootstrap_auc_mean <- mean(
+  bootstrap_auc_validation
+)
+
+bootstrap_auc_ci <- quantile(
+  bootstrap_auc_validation,
+  probs = c(0.025, 0.975),
+  na.rm = TRUE
+)
+
+cat(
+  "Bootstrap validation repetitions:",
+  B_auc,
+  "\n"
+)
+
+cat(
+  "Mean bootstrap AUC:",
+  bootstrap_auc_mean,
+  "\n"
+)
+
+cat(
+  "Bootstrap AUC 95% CI:",
+  bootstrap_auc_ci[1],
+  "to",
+  bootstrap_auc_ci[2],
+  "\n"
+)
+
+bootstrap_validation_results <- data.frame(
+  Metric = c(
+    "Bootstrap repetitions",
+    "Mean bootstrap AUC",
+    "Bootstrap AUC 95% CI lower",
+    "Bootstrap AUC 95% CI upper",
+    "Apparent AUC",
+    "Optimism-corrected AUC"
+  ),
+  Value = c(
+    B_auc,
+    bootstrap_auc_mean,
+    bootstrap_auc_ci[1],
+    bootstrap_auc_ci[2],
+    apparent_auc,
+    optimism_corrected_auc
+  )
+)
+
+print(bootstrap_validation_results)
+
+write.csv(
+  bootstrap_validation_results,
+  "reports/bootstrap_validation_auc.csv",
+  row.names = FALSE
+)
+
+# 20. Final reproducibility checks
 # ------------------------------------------------------------
 
 cat(

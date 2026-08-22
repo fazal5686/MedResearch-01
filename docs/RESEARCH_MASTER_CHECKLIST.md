@@ -25,11 +25,11 @@
 - [x] Influential observation assessment — 19 observations screened using Cook's distance and DFFITS
 - [x] Overfitting assessment — 6 predictors with 54.33 events per predictor; AIC 564.01; BIC 593.51; pseudo-R2 0.149
 - [x] Internal validation — 200-bootstrap optimism correction; apparent AUC 0.7534 and optimism-corrected AUC 0.7418
-- [ ] Bootstrap validation
-- [ ] Univariable analysis
+- [x] Bootstrap validation — 200 bootstrap repetitions; mean AUC 0.7618; 95% CI 0.7182–0.7993
+- [x] Univariable analysis — age, hypertension, previous admissions, length of stay, and emergency admission were significant; diabetes was not significant
 - [ ] Subgroup analysis
 - [x] Sensitivity analysis — exclusion of screened observations retained direction and significance of associations; hypertension showed the largest OR change
-- [ ] Table 1 — Patient characteristics
+- [x] Table 1 — Patient characteristics — consolidated overall and readmission-stratified demographics, clinical characteristics, and P values
 - [ ] Table 2 — Univariable analysis
 - [ ] Table 3 — Multivariable regression
 - [ ] Final publication-quality figures
