@@ -1,0 +1,25 @@
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio project files
+.Rproj.user/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment and secret files
+.env
+.env.*
+!.env.example
