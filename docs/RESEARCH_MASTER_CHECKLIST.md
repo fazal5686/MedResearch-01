@@ -18,8 +18,8 @@
 ## Next research steps
 - [ ] Sensitivity and specificity analysis
 - [ ] Probability threshold analysis
-- [ ] Model calibration
-- [ ] Calibration plot
+- [x] Model calibration — calibration intercept approximately 0 and calibration slope 1.00
+- [x] Calibration plot — 10 prediction deciles comparing mean predicted and observed 30-day readmission risk
 - [ ] Model specification checks
 - [x] Multicollinearity assessment — VIF 1.009–1.059; no problematic multicollinearity
 - [x] Influential observation assessment — 19 observations screened using Cook's distance and DFFITS
