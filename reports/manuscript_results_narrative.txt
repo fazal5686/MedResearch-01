@@ -1,0 +1,19 @@
+RESULTS
+
+Study population
+The analysis included 500 patients, of whom 326 experienced the study outcome and 174 did not. The overall readmission rate was 65.2%.
+
+Multivariable analysis
+In the multivariable logistic regression model, increasing age was associated with higher odds of readmission (adjusted OR 1.032, 95% CI 1.022–1.043, P < 0.001). Hypertension was also associated with increased odds of readmission (adjusted OR 2.115, 95% CI 1.355–3.351, P = 0.00116).
+
+Previous admissions were associated with higher odds of readmission (adjusted OR 1.342, 95% CI 1.190–1.520, P < 0.001). Longer length of stay was similarly associated with increased odds of readmission (adjusted OR 1.095, 95% CI 1.057–1.137, P < 0.001). Emergency admission was associated with increased odds of readmission (adjusted OR 1.741, 95% CI 1.150–2.642, P = 0.00888).
+
+Diabetes was not independently associated with readmission after adjustment (adjusted OR 1.449, 95% CI 0.908–2.346, P = 0.125).
+
+Model performance
+The apparent area under the receiver operating characteristic curve (AUC) was 0.753. Internal bootstrap validation produced a mean AUC of 0.762, with a bootstrap 95% CI of 0.718–0.799. After correction for bootstrap-estimated optimism, the AUC was 0.742.
+
+Calibration and model diagnostics
+The calibration intercept was approximately -0.000 and the calibration slope was 1.000. Variance inflation factors were low, with a maximum VIF of 1.059, indicating no substantial multicollinearity among the model predictors. The model included six predictors and had 54.33 events per predictor.
+
+These findings indicate that the model demonstrated moderate discrimination after internal optimism correction, while the calibration and multicollinearity diagnostics were favorable within this dataset.
