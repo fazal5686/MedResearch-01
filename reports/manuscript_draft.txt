@@ -65,17 +65,33 @@ Multicollinearity was not identified as a concern. Variance inflation factors ra
 
 4.1 Principal Findings
 
+This study developed and internally evaluated a multivariable logistic regression model for 30-day readmission. The model demonstrated moderate discrimination, with an apparent area under the receiver operating characteristic curve (AUC) of approximately 0.753 and an optimism-corrected AUC of approximately 0.742. These findings indicate that the model retained useful discriminatory ability after internal correction for model optimism.
+
+Internal validation using bootstrap resampling provided an additional assessment of model performance and supported the overall stability of the discrimination estimate. Calibration assessment was favorable within the analyzed dataset, indicating reasonable agreement between predicted and observed risk. Together, the discrimination and calibration findings suggest that the model may have potential utility for identifying patients at increased risk of early readmission, although external validation is required before clinical implementation.
+
 4.2 Comparison With Previous Evidence
+
+The observed model performance is consistent with the broader principle that prediction of hospital readmission is challenging because readmission is influenced by multiple clinical, demographic, utilization, and system-level factors. The moderate discrimination observed in this analysis should therefore be interpreted as clinically informative but not as evidence of perfect individual-level prediction.
+
+Direct comparison with previously published models should be made cautiously because model performance depends on the patient population, outcome definition, predictor availability, follow-up period, and validation methodology. The present estimates are internally derived and should not be assumed to be directly comparable with externally validated models without consideration of these methodological differences.
 
 4.3 Clinical Interpretation
 
+From a clinical perspective, the model may be useful as a risk-stratification tool to support identification of patients who could benefit from additional discharge planning, follow-up, medication review, or other readmission-prevention interventions. The model should be considered a decision-support tool rather than a replacement for clinical judgment.
+
+The moderate discrimination also indicates that predicted risk should be interpreted probabilistically. Patients classified as higher risk would not necessarily experience readmission, and patients classified as lower risk could still experience the outcome. Consequently, implementation should incorporate clinical assessment and appropriate local validation.
+
 4.4 Strengths and Limitations
 
-============================================================
+Important strengths of this analysis include the use of multivariable modeling, internal bootstrap validation, assessment of discrimination and calibration, and explicit evaluation of multicollinearity. The variance inflation factors were low, ranging from approximately 1.009 to 1.059, providing no evidence of problematic multicollinearity among the predictors included in the multivariable model.
+
+Several limitations should be considered. First, the analysis represents an internally evaluated model and therefore does not establish transportability to other hospitals or patient populations. External validation in an independent cohort is required. Second, prediction performance may change when predictor distributions, clinical practices, or readmission patterns differ from those in the development dataset. Third, the moderate level of discrimination indicates that the model should not be interpreted as a complete representation of the factors determining readmission.
+
+Future work should include external validation, assessment of calibration in independent populations, evaluation of clinical utility, and consideration of model updating if performance declines when applied to new settings.
 
 5. CONCLUSION
 
-============================================================
+The multivariable model demonstrated moderate discrimination for 30-day readmission and retained useful predictive performance after internal optimism correction. Calibration and multicollinearity diagnostics were favorable within the analyzed dataset. These findings support the potential value of the model as a risk-stratification aid, but external validation and assessment of clinical utility are necessary before routine clinical implementation.
 
 REFERENCES
 
