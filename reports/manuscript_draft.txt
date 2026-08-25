@@ -1,0 +1,96 @@
+TITLE
+
+Predictors and Internal Validation of 30-Day Hospital Readmission:
+A Logistic Regression Analysis
+
+============================================================
+
+ABSTRACT
+
+Background:
+
+Objective:
+
+Methods:
+
+Results:
+
+Conclusion:
+
+============================================================
+
+1. INTRODUCTION
+
+============================================================
+
+2. METHODS
+
+2.1 Study Design and Population
+
+2.2 Outcome Definition
+
+2.3 Predictor Variables
+
+2.4 Statistical Analysis
+
+2.5 Model Performance and Internal Validation
+
+2.6 Calibration and Multicollinearity
+
+============================================================
+
+3. RESULTS
+
+3.1 Study Population
+
+3.2 Multivariable Logistic Regression
+
+3.3 Model Discrimination
+
+3.4 Calibration
+
+3.5 Multicollinearity
+
+============================================================
+
+4. DISCUSSION
+
+4.1 Principal Findings
+
+4.2 Comparison With Previous Evidence
+
+4.3 Clinical Interpretation
+
+4.4 Strengths and Limitations
+
+============================================================
+
+5. CONCLUSION
+
+============================================================
+
+REFERENCES
+
+============================================================
+
+TABLES
+
+Table 1. Baseline characteristics.
+
+Table 2. Multivariable logistic regression predictors of 30-day readmission.
+
+Table 3. Model performance and internal validation.
+
+============================================================
+
+FIGURE LEGENDS
+
+Figure 1. ROC curve for 30-day readmission prediction.
+
+Figure 2. Calibration plot.
+
+Figure 3. Forest plot of adjusted odds ratios.
+
+Figure 4. Length of stay and readmission.
+
+Figure 5. Previous admissions and readmission.
