@@ -43,15 +43,23 @@ Conclusion:
 
 3.1 Study Population
 
+The study population was evaluated for 30-day hospital readmission using a multivariable logistic regression model incorporating age, diabetes, hypertension, previous admissions, length of stay, and emergency admission status.
+
 3.2 Multivariable Logistic Regression
+
+In the multivariable model, increasing age was associated with higher odds of readmission (adjusted OR 1.032, 95% CI 1.022–1.043; P < 0.001). Hypertension was also associated with increased odds of readmission (adjusted OR 2.115, 95% CI 1.355–3.351; P = 0.001). Previous admissions were associated with higher odds of readmission (adjusted OR 1.342, 95% CI 1.190–1.520; P < 0.001). Longer length of stay was associated with increased odds of readmission (adjusted OR 1.095, 95% CI 1.057–1.137; P < 0.001). Emergency admission was also independently associated with increased odds of readmission (adjusted OR 1.741, 95% CI 1.150–2.642; P = 0.009). Diabetes was not statistically significantly associated with readmission after adjustment (adjusted OR 1.449, 95% CI 0.908–2.346; P = 0.125).
 
 3.3 Model Discrimination
 
+The apparent model AUC was 0.753. Following bootstrap internal validation with 200 repetitions, the mean bootstrap AUC was 0.762, with a 95% bootstrap interval of 0.718–0.799. The optimism-corrected AUC was 0.742, indicating moderate discrimination after internal optimism correction.
+
 3.4 Calibration
+
+The calibration intercept was approximately zero and the calibration slope was 1.00, indicating favorable calibration characteristics within the analyzed dataset.
 
 3.5 Multicollinearity
 
-============================================================
+Multicollinearity was not identified as a concern. Variance inflation factors ranged from approximately 1.009 to 1.059, indicating no evidence of problematic multicollinearity among the predictors.
 
 4. DISCUSSION
 
