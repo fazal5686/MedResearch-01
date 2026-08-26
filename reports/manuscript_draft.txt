@@ -8,15 +8,19 @@ A Logistic Regression Analysis
 ABSTRACT
 
 Background:
+Hospital readmission within 30 days is an important outcome influenced by multiple patient and healthcare-related factors and remains challenging to predict accurately.
 
 Objective:
+To identify factors independently associated with 30-day hospital readmission and to assess the discrimination, calibration, and internal validity of a multivariable logistic regression model.
 
 Methods:
+A multivariable logistic regression model was developed using age, diabetes, hypertension, previous admissions, length of stay, and emergency admission status as predictors of 30-day readmission. Discrimination was assessed using the area under the receiver operating characteristic curve (AUC), calibration and multicollinearity were evaluated, and internal validation was performed using 200 bootstrap repetitions with optimism correction.
 
 Results:
+The apparent model AUC was 0.753, the mean bootstrap AUC was 0.762, and the optimism-corrected AUC was 0.742, with a 95% bootstrap interval of 0.718–0.799. Increasing age, hypertension, previous admissions, longer length of stay, and emergency admission were independently associated with higher odds of readmission, whereas diabetes was not statistically significantly associated after adjustment. Variance inflation factors (VIFs) ranged from approximately 1.009 to 1.059, indicating no evidence of problematic multicollinearity.
 
 Conclusion:
-
+The multivariable model demonstrated moderate discrimination with favorable calibration and no evidence of problematic multicollinearity within the analyzed dataset. External validation and assessment of clinical utility are required before routine clinical implementation.
 ============================================================
 
 1. INTRODUCTION
