@@ -1,0 +1,128 @@
+TITLE
+
+Predictors and Internal Validation of 30-Day Hospital Readmission:
+A Logistic Regression Analysis
+
+============================================================
+
+ABSTRACT
+
+Background:
+Hospital readmission within 30 days is an important outcome influenced by multiple patient and healthcare-related factors and remains challenging to predict accurately.
+
+Objective:
+To identify factors independently associated with 30-day hospital readmission and to assess the discrimination, calibration, and internal validity of a multivariable logistic regression model.
+
+Methods:
+A multivariable logistic regression model was developed using age, diabetes, hypertension, previous admissions, length of stay, and emergency admission status as predictors of 30-day readmission. Discrimination was assessed using the area under the receiver operating characteristic curve (AUC), calibration and multicollinearity were evaluated, and internal validation was performed using 200 bootstrap repetitions with optimism correction.
+
+Results:
+The apparent model AUC was 0.753, the mean bootstrap AUC was 0.762, and the optimism-corrected AUC was 0.742, with a 95% bootstrap interval of 0.718–0.799. Increasing age, hypertension, previous admissions, longer length of stay, and emergency admission were independently associated with higher odds of readmission, whereas diabetes was not statistically significantly associated after adjustment. Variance inflation factors (VIFs) ranged from approximately 1.009 to 1.059, indicating no evidence of problematic multicollinearity.
+
+Conclusion:
+The multivariable model demonstrated moderate discrimination with favorable calibration and no evidence of problematic multicollinearity within the analyzed dataset. External validation and assessment of clinical utility are required before routine clinical implementation.
+============================================================
+
+1. INTRODUCTION
+
+============================================================
+
+2. METHODS
+
+2.1 Study Design and Population
+
+2.2 Outcome Definition
+
+2.3 Predictor Variables
+
+2.4 Statistical Analysis
+
+2.5 Model Performance and Internal Validation
+
+2.6 Calibration and Multicollinearity
+
+============================================================
+
+3. RESULTS
+
+3.1 Study Population
+
+The study population was evaluated for 30-day hospital readmission using a multivariable logistic regression model incorporating age, diabetes, hypertension, previous admissions, length of stay, and emergency admission status.
+
+3.2 Multivariable Logistic Regression
+
+In the multivariable model, increasing age was associated with higher odds of readmission (adjusted OR 1.032, 95% CI 1.022–1.043; P < 0.001). Hypertension was also associated with increased odds of readmission (adjusted OR 2.115, 95% CI 1.355–3.351; P = 0.001). Previous admissions were associated with higher odds of readmission (adjusted OR 1.342, 95% CI 1.190–1.520; P < 0.001). Longer length of stay was associated with increased odds of readmission (adjusted OR 1.095, 95% CI 1.057–1.137; P < 0.001). Emergency admission was also independently associated with increased odds of readmission (adjusted OR 1.741, 95% CI 1.150–2.642; P = 0.009). Diabetes was not statistically significantly associated with readmission after adjustment (adjusted OR 1.449, 95% CI 0.908–2.346; P = 0.125).
+
+3.3 Model Discrimination
+
+The apparent model AUC was 0.753. Following bootstrap internal validation with 200 repetitions, the mean bootstrap AUC was 0.762, with a 95% bootstrap interval of 0.718–0.799. The optimism-corrected AUC was 0.742, indicating moderate discrimination after internal optimism correction.
+
+3.4 Calibration
+
+The calibration intercept was approximately zero and the calibration slope was 1.00, indicating favorable calibration characteristics within the analyzed dataset.
+
+3.5 Multicollinearity
+
+Multicollinearity was not identified as a concern. Variance inflation factors ranged from approximately 1.009 to 1.059, indicating no evidence of problematic multicollinearity among the predictors.
+
+4. DISCUSSION
+
+4.1 Principal Findings
+
+This study developed and internally evaluated a multivariable logistic regression model for 30-day readmission. The model demonstrated moderate discrimination, with an apparent area under the receiver operating characteristic curve (AUC) of approximately 0.753 and an optimism-corrected AUC of approximately 0.742. These findings indicate that the model retained useful discriminatory ability after internal correction for model optimism.
+
+Internal validation using bootstrap resampling provided an additional assessment of model performance and supported the overall stability of the discrimination estimate. Calibration assessment was favorable within the analyzed dataset, indicating reasonable agreement between predicted and observed risk. Together, the discrimination and calibration findings suggest that the model may have potential utility for identifying patients at increased risk of early readmission, although external validation is required before clinical implementation.
+
+4.2 Comparison With Previous Evidence
+
+The observed model performance is consistent with the broader principle that prediction of hospital readmission is challenging because readmission is influenced by multiple clinical, demographic, utilization, and system-level factors. The moderate discrimination observed in this analysis should therefore be interpreted as clinically informative but not as evidence of perfect individual-level prediction. [1,2]
+
+Direct comparison with previously published models should be made cautiously because model performance depends on the patient population, outcome definition, predictor availability, follow-up period, and validation methodology. The present estimates are internally derived and should not be assumed to be directly comparable with externally validated models without consideration of these methodological differences. [1,2]
+
+4.3 Clinical Interpretation
+
+From a clinical perspective, the model may be useful as a risk-stratification tool to support identification of patients who could benefit from additional discharge planning, follow-up, medication review, or other readmission-prevention interventions. The model should be considered a decision-support tool rather than a replacement for clinical judgment.
+
+The moderate discrimination also indicates that predicted risk should be interpreted probabilistically. Patients classified as higher risk would not necessarily experience readmission, and patients classified as lower risk could still experience the outcome. Consequently, implementation should incorporate clinical assessment and appropriate local validation.
+
+4.4 Strengths and Limitations
+
+Important strengths of this analysis include the use of multivariable modeling, internal bootstrap validation, assessment of discrimination and calibration, and explicit evaluation of multicollinearity. The variance inflation factors were low, ranging from approximately 1.009 to 1.059, providing no evidence of problematic multicollinearity among the predictors included in the multivariable model. [3]
+
+Several limitations should be considered. First, the analysis represents an internally evaluated model and therefore does not establish transportability to other hospitals or patient populations. External validation in an independent cohort is required. Second, prediction performance may change when predictor distributions, clinical practices, or readmission patterns differ from those in the development dataset. Third, the moderate level of discrimination indicates that the model should not be interpreted as a complete representation of the factors determining readmission. [1,3]
+
+Future work should include external validation, assessment of calibration in independent populations, evaluation of clinical utility, and consideration of model updating if performance declines when applied to new settings.
+
+5. CONCLUSION
+
+The multivariable model demonstrated moderate discrimination for 30-day readmission and retained useful predictive performance after internal optimism correction. Calibration and multicollinearity diagnostics were favorable within the analyzed dataset. These findings support the potential value of the model as a risk-stratification aid, but external validation and assessment of clinical utility are necessary before routine clinical implementation.
+
+REFERENCES
+
+1. Kansagara D, Englander H, Salanitro A, Kagen D, Theobald C, Freeman M, Kripalani S. Risk prediction models for hospital readmission: a systematic review. JAMA. 2011;306(15):1688-1698. doi:10.1001/jama.2011.1515.
+
+2. Artetxe A, Beristain A, Graña M. Predictive models for hospital readmission risk: a systematic review of methods. Comput Methods Programs Biomed. 2018;164:49-64. doi:10.1016/j.cmpb.2018.06.006.
+
+3. Collins GS, Reitsma JB, Altman DG, Moons KGM. Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): the TRIPOD statement. BMJ. 2015;350:g7594. doi:10.1136/bmj.g7594.
+
+TABLES
+
+Table 1. Baseline characteristics.
+
+Table 2. Multivariable logistic regression predictors of 30-day readmission.
+
+Table 3. Model performance and internal validation.
+
+============================================================
+
+FIGURE LEGENDS
+
+Figure 1. ROC curve for 30-day readmission prediction.
+
+Figure 2. Calibration plot.
+
+Figure 3. Forest plot of adjusted odds ratios.
+
+Figure 4. Length of stay and readmission.
+
+Figure 5. Previous admissions and readmission.
